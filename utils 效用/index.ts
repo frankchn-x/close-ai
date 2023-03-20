@@ -5,7 +5,7 @@ export const OpenAIStream = async (model: OpenAIModel, key: string, messages: Me
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+  const res = await fetch("https://openai.1rmb.tk/v1/chat/completions", {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key ? key : process.env.OPENAI_API_KEY}`
@@ -20,8 +20,8 @@ export const OpenAIStream = async (model: OpenAIModel, key: string, messages: Me
         },
         ...messages
       ],
-      max_tokens: 1000,
-      temperature: 0.0,
+      max_tokens: 3000,
+      temperature: 0.7,
       stream: true
     })
   });
